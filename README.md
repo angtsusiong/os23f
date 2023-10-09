@@ -1,16 +1,15 @@
 # Operating System Project
 
 ## Nachos 4.0
+The nachos were built successfully on Arch Linux x86_64 6.5.6 64-bit.
 
-The nachos was built successfully on Arch Linux x86_64 6.5.6 64-bit.
-
-### Build 
+### Build
 ```
 cd Nachos/nachos-4.0/code
 make
 ```
 
-## Check if you are success
+## Check if the build success
 ```
 cd userprog
 $ ./nachos -e ../test/test1
