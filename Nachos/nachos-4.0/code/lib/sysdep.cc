@@ -75,10 +75,17 @@ int mprotect(char *, unsigned int, int);
 int select(int nfds, fd_set *readfds, fd_set *writefds, fd_set *exceptfds,
            struct timeval *timeout);
 #else
+#ifdef LINUX
+int select(int nfds, fd_set *readfds, fd_set *writefds, fd_set *exceptfds,
+           struct timeval *timeout);
+#else
 int select(int numBits, void *readFds, void *writeFds, void *exceptFds,
            struct timeval *timeout);
 #endif
+#endif
+
 int socket(int, int, int);
+
 // int bind (int, const void*, int);
 // int recvfrom (int, void*, int, int, void*, int *);
 // int sendto (int, const void*, int, int, void*, int);
@@ -186,8 +193,20 @@ void DeallocBoundedArray(char *ptr, int size) {
 //----------------------------------------------------------------------
 
 bool PollFile(int fd) {
-    int rfd = (1 << fd), wfd = 0, xfd = 0, retVal;
+#ifdef LINUX
+    fd_set rfd, wfd, xfd;
+#else
+    int rfd = (1 << fd), wfd = 0, xfd = 0;
+#endif
+    int retVal;
     struct timeval pollTime;
+
+#ifdef LINUX
+    FD_ZERO(&rfd);
+    FD_ZERO(&wfd);
+    FD_ZERO(&xfd);
+    FD_SET(fd, &rfd);
+#endif
 
     // don't wait if there are no characters on the file
     pollTime.tv_sec = 0;
@@ -198,7 +217,10 @@ bool PollFile(int fd) {
     retVal =
         select(32, (fd_set *)&rfd, (fd_set *)&wfd, (fd_set *)&xfd, &pollTime);
 #else
+#ifdef LINUX
+    // KMS
     retVal = select(32, &rfd, &wfd, &xfd, &pollTime);
+#endif
 #endif
 
     ASSERT((retVal == 0) || (retVal == 1));
@@ -284,9 +306,13 @@ void Lseek(int fd, int offset, int whence) {
 
 int Tell(int fd) {
 #ifdef BSD
-    return lseek(fd, 0, SEEK_CUR); // 386BSD doesn't have the tell() system call
+    return lseek(fd, 0, SEEK_CUR);
 #else
-    return tell(fd);
+#ifdef LINUX
+    return lseek(fd, 0, SEEK_CUR);
+#else
+    return tell(fd); 
+#endif
 #endif
 }
 
