@@ -34,3 +34,16 @@
 # Clangd
 .cache/
 compile_commands.json
+
+# Nachos
+*.coff
+**/code/bin/coff2noff
+**/code/*/swtch.s
+**/code/*/nachos
+**/code/test/
+!**/code/test/*.c
+!**/code/test/*.s
+!**/code/test/Makefile
+!**/code/test/script
+
+
