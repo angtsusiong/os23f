@@ -27,7 +27,7 @@
 class Semaphore;
 class Lock;
 class SynchDisk : public CallBackObj {
-  public:
+public:
     SynchDisk(char *name); // Initialize a synchronous disk,
                            // by initializing the raw Disk.
     ~SynchDisk();          // De-allocate the synch disk data
@@ -44,7 +44,7 @@ class SynchDisk : public CallBackObj {
                      // handler, to signal that the
                      // current disk operation is complete.
 
-  private:
+private:
     Disk *disk;           // Raw disk device
     Semaphore *semaphore; // To synchronize requesting thread
                           // with the interrupt handler

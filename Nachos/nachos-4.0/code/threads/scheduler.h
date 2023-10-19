@@ -24,7 +24,7 @@ enum SchedulerType {
 };
 
 class Scheduler {
-  public:
+public:
     Scheduler();  // Initialize list of ready threads
     ~Scheduler(); // De-allocate ready list
 
@@ -40,12 +40,12 @@ class Scheduler {
 
     // SelfTest for scheduler is implemented in class Thread
 
-  private:
+private:
     SchedulerType schedulerType;
     List<Thread *> *readyList; // queue of threads that are ready to run,
                                // but not running
-    Thread *toBeDestroyed; // finishing thread to be destroyed
-                           // by the next thread that runs
+    Thread *toBeDestroyed;     // finishing thread to be destroyed
+                               // by the next thread that runs
 };
 
 #endif // SCHEDULER_H

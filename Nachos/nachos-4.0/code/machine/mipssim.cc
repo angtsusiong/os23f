@@ -27,7 +27,7 @@ static void Mult(int a, int b, bool signedArith, int *hiPtr, int *loPtr);
 //	    any immediate operand value
 
 class Instruction {
-  public:
+public:
     void Decode(); // decode the binary representation of the instruction
 
     unsigned int value; // binary representation of the instruction
@@ -342,15 +342,15 @@ void Machine::OneInstruction(Instruction *instr) {
         switch (tmp & 0x3) {
         case 0:
             nextLoadValue =
-                (nextLoadValue & 0xffffff00) | ((value >> 24) & 0xff);
+                    (nextLoadValue & 0xffffff00) | ((value >> 24) & 0xff);
             break;
         case 1:
             nextLoadValue =
-                (nextLoadValue & 0xffff0000) | ((value >> 16) & 0xffff);
+                    (nextLoadValue & 0xffff0000) | ((value >> 16) & 0xffff);
             break;
         case 2:
             nextLoadValue =
-                (nextLoadValue & 0xff000000) | ((value >> 8) & 0xffffff);
+                    (nextLoadValue & 0xff000000) | ((value >> 8) & 0xffffff);
             break;
         case 3:
             nextLoadValue = value;
@@ -456,7 +456,7 @@ void Machine::OneInstruction(Instruction *instr) {
 
     case OP_SRAV:
         registers[instr->rd] =
-            registers[instr->rt] >> (registers[instr->rs] & 0x1f);
+                registers[instr->rt] >> (registers[instr->rs] & 0x1f);
         break;
 
     case OP_SRL:
@@ -505,16 +505,16 @@ void Machine::OneInstruction(Instruction *instr) {
             value = registers[instr->rt];
             break;
         case 1:
-            value =
-                (value & 0xff000000) | ((registers[instr->rt] >> 8) & 0xffffff);
+            value = (value & 0xff000000) |
+                    ((registers[instr->rt] >> 8) & 0xffffff);
             break;
         case 2:
-            value =
-                (value & 0xffff0000) | ((registers[instr->rt] >> 16) & 0xffff);
+            value = (value & 0xffff0000) |
+                    ((registers[instr->rt] >> 16) & 0xffff);
             break;
         case 3:
-            value =
-                (value & 0xffffff00) | ((registers[instr->rt] >> 24) & 0xff);
+            value = (value & 0xffffff00) |
+                    ((registers[instr->rt] >> 24) & 0xff);
             break;
         }
         if (!WriteMem((tmp & ~0x3), 4, value))

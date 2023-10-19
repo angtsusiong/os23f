@@ -26,7 +26,7 @@
 
 // The following class defines a hardware timer.
 class Timer : public CallBackObj {
-  public:
+public:
     Timer(bool doRandom, CallBackObj *toCall);
     // Initialize the timer, and callback to "toCall"
     // every time slice.
@@ -36,11 +36,11 @@ class Timer : public CallBackObj {
     // Turn timer device off, so it doesn't
     // generate any more interrupts.
 
-  private:
+private:
     bool randomize; // set if we need to use a random timeout delay
     CallBackObj *callPeriodically; // call this every TimerTicks time units
     bool disable;                  // turn off the timer device after next
-                  // interrupt.
+                                   // interrupt.
 
     void CallBack(); // called internally when the hardware
                      // timer generates an interrupt

@@ -18,7 +18,7 @@ class PostOfficeInput;
 class PostOfficeOutput;
 
 class NetKernel : public UserProgKernel {
-  public:
+public:
     NetKernel(int argc, char **argv);
     // Interpret command line arguments
     ~NetKernel(); // deallocate the kernel
@@ -35,7 +35,7 @@ class NetKernel : public UserProgKernel {
 
     int hostName; // which machine is this
 
-  private:
+private:
     double reliability; // likelihood messages are dropped
 };
 

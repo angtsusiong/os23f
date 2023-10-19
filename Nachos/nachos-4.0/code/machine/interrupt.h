@@ -65,7 +65,7 @@ enum IntType {
 // left public to make it simpler to manipulate.
 
 class PendingInterrupt {
-  public:
+public:
     PendingInterrupt(CallBackObj *callOnInt, int time, IntType kind);
     // initialize an interrupt that will
     // occur in the future
@@ -83,7 +83,7 @@ class PendingInterrupt {
 // in the future.
 
 class Interrupt {
-  public:
+public:
     Interrupt();  // initialize the interrupt simulation
     ~Interrupt(); // de-allocate data structures
 
@@ -127,14 +127,14 @@ class Interrupt {
 
     void OneTick(); // Advance simulated time
 
-  private:
+private:
     IntStatus level; // are interrupts enabled or disabled?
     SortedList<PendingInterrupt *> *pending;
     // the list of interrupts scheduled
     // to occur in the future
-    bool inHandler;     // TRUE if we are running an interrupt handler
-    bool yieldOnReturn; // TRUE if we are to context switch
-                        // on return from the interrupt handler
+    bool inHandler;       // TRUE if we are running an interrupt handler
+    bool yieldOnReturn;   // TRUE if we are to context switch
+                          // on return from the interrupt handler
     MachineStatus status; // idle, kernel mode, user mode
 
     // these functions are internal to the interrupt simulation code

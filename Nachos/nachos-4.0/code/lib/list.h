@@ -25,7 +25,7 @@
 // from this module). Made public for notational convenience.
 
 template <class T> class ListElement {
-  public:
+public:
     ListElement(T itm); // initialize a list element
     ListElement *next;  // next element on list, NULL if this is last
     T item;             // item on the list
@@ -39,7 +39,7 @@ template <class T> class ListElement {
 template <class T> class ListIterator;
 
 template <class T> class List {
-  public:
+public:
     List();          // initialize the list
     virtual ~List(); // de-allocate the list
 
@@ -67,7 +67,7 @@ template <class T> class List {
     void SelfTest(T *p, int numEntries);
     // verify module is working
 
-  protected:
+protected:
     ListElement<T> *first; // Head of the list, NULL if list is empty
     ListElement<T> *last;  // Last element of list
     int numInList;         // number of elements in list
@@ -86,7 +86,7 @@ template <class T> class List {
 //		returns 1 if x > y
 
 template <class T> class SortedList : public List<T> {
-  public:
+public:
     SortedList(int (*comp)(T x, T y)) : List<T>() { compare = comp; };
     ~SortedList(){}; // base class destructor called automatically
 
@@ -96,12 +96,14 @@ template <class T> class SortedList : public List<T> {
     void SelfTest(T *p, int numEntries);
     // verify module is working
 
-  private:
+private:
     int (*compare)(T x, T y); // function for sorting list elements
 
-    void Prepend(T item) { Insert(item); } // *pre*pending has no meaning
-                                           //	in a sorted list
-    void Append(T item) { Insert(item); }  // neither does *ap*pend
+    void Prepend(T item) {
+        Insert(item);
+    }                                     // *pre*pending has no meaning
+                                          //	in a sorted list
+    void Append(T item) { Insert(item); } // neither does *ap*pend
 };
 
 // The following class can be used to step through a list.
@@ -113,7 +115,7 @@ template <class T> class SortedList : public List<T> {
 //      }
 
 template <class T> class ListIterator {
-  public:
+public:
     ListIterator(List<T> *list) { current = list->first; }
     // initialize an iterator
 
@@ -129,7 +131,7 @@ template <class T> class ListIterator {
     void Next() { current = current->next; };
     // update iterator to point to next
 
-  private:
+private:
     ListElement<T> *current; // where we are in the list
 };
 

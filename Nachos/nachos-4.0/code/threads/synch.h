@@ -38,7 +38,7 @@
 // now be different.
 
 class Semaphore {
-  public:
+public:
     Semaphore(char *debugName, int initialValue); // set initial value
     ~Semaphore();                                 // de-allocate semaphore
     char *getName();                              // debugging assist
@@ -47,7 +47,7 @@ class Semaphore {
     void V();        // they are both *atomic*
     void SelfTest(); // test routine for semaphore implementation
 
-  private:
+private:
     char *name; // useful for debugging
     int value;  // semaphore value, always >= 0
     List<Thread *> *queue;
@@ -67,7 +67,7 @@ class Semaphore {
 // (because the value might change immediately after you read it).
 
 class Lock {
-  public:
+public:
     Lock(char *debugName); // initialize lock to be FREE
     ~Lock();               // deallocate lock
     char *getName();       // debugging assist
@@ -81,7 +81,7 @@ class Lock {
 
     // Note: SelfTest routine provided by SynchList
 
-  private:
+private:
     char *name;           // debugging assist
     Thread *lockHolder;   // thread currently holding lock
     Semaphore *semaphore; // we use a semaphore to implement lock
@@ -121,7 +121,7 @@ class Lock {
 // is that it is a lot easier to implement than Hoare-style.
 
 class Condition {
-  public:
+public:
     Condition(char *debugName); // initialize condition to
                                 // "no one waiting"
     ~Condition();               // deallocate the condition
@@ -136,7 +136,7 @@ class Condition {
                                          // these operations
     // SelfTest routine provided by SyncLists
 
-  private:
+private:
     char *name;
     List<Semaphore *> *waitQueue; // list of waiting threads
 };

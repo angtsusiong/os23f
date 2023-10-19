@@ -18,7 +18,7 @@
 // be read from and stored to the disk.
 
 class PersistBitMap : public BitMap {
-  public:
+public:
     PersistBitMap(OpenFile *file, int numItems); // initialize bitmap from disk
     PersistBitMap(int numItems);
     ~PersistBitMap(); // deallocate bitmap

@@ -54,7 +54,7 @@ const int NumSectors = (SectorsPerTrack * NumTracks);
 // total # of sectors per disk
 
 class Disk : public CallBackObj {
-  public:
+public:
     Disk(char *name, CallBackObj *toCall); // Create a simulated disk.
                                            // Invoke toCall->CallBack()
                                            // when each request completes.
@@ -75,7 +75,7 @@ class Disk : public CallBackObj {
     // newSector will take:
     // (seek + rotational delay + transfer)
 
-  private:
+private:
     int fileno;                // UNIX file number for simulated disk
     CallBackObj *callWhenDone; // Invoke when any disk request finishes
     bool active;               // Is a disk operation in progress?

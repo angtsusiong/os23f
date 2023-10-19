@@ -15,7 +15,7 @@
 // information about an elevator event that affects riders or
 // controllers.  Class is private to this module
 class PendingElevatorEvent {
-  public:
+public:
     PendingElevatorEvent(ElevatorEvent ev, int fl, int el) {
         event = ev;
         floor = fl;
@@ -29,7 +29,7 @@ class PendingElevatorEvent {
 // data structure to represent the state of the physical elevator
 // class is private to this module
 class ElevatorInfo {
-  public:
+public:
     ElevatorInfo() { // initialize elevator state
         display = Neither;
         doorsOpen = inMotion = FALSE;

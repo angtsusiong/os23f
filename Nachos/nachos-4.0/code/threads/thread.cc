@@ -157,7 +157,7 @@ void Thread::Begin() {
 //	or the execution stack, because we're still running in the thread
 //	and we're still on the stack!  Instead, we tell the scheduler
 //	to call the destructor, once it is running in the context of a different
-//thread.
+// thread.
 //
 // 	NOTE: we disable interrupts, because Sleep() assumes interrupts
 //	are disabled.

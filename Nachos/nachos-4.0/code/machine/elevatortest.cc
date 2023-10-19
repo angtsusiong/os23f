@@ -17,7 +17,7 @@
 // Data structures to control elevator device self test.
 // Definition private to this module.
 class ElevatorInspector : public CallBackObj {
-  public:
+public:
     ElevatorInspector();  // allocate self test data structures
     ~ElevatorInspector(); // deallocate self test data
 
@@ -25,9 +25,9 @@ class ElevatorInspector : public CallBackObj {
                            // by acting like a rider
     void ControllerTest(); // test out elevator simulation, by
                            // acting like an elevator controller
-    void CallBack(); // get notification of event
+    void CallBack();       // get notification of event
 
-  private:
+private:
     ElevatorBank *elevators;
     Semaphore *riderWakeup;      // to synchronize rider with callbacks
     Semaphore *controllerWakeup; // to synch controller with callbacks

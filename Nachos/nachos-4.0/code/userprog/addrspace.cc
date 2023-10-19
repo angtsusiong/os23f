@@ -118,16 +118,16 @@ bool AddrSpace::Load(char *fileName) {
         DEBUG(dbgAddr, "Initializing code segment.");
         DEBUG(dbgAddr, noffH.code.virtualAddr << ", " << noffH.code.size);
         executable->ReadAt(
-            &(kernel->machine->mainMemory[noffH.code.virtualAddr]),
-            noffH.code.size, noffH.code.inFileAddr);
+                &(kernel->machine->mainMemory[noffH.code.virtualAddr]),
+                noffH.code.size, noffH.code.inFileAddr);
     }
     if (noffH.initData.size > 0) {
         DEBUG(dbgAddr, "Initializing data segment.");
         DEBUG(dbgAddr,
               noffH.initData.virtualAddr << ", " << noffH.initData.size);
         executable->ReadAt(
-            &(kernel->machine->mainMemory[noffH.initData.virtualAddr]),
-            noffH.initData.size, noffH.initData.inFileAddr);
+                &(kernel->machine->mainMemory[noffH.initData.virtualAddr]),
+                noffH.initData.size, noffH.initData.inFileAddr);
     }
 
     delete executable; // close file

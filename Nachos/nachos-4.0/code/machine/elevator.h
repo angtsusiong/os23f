@@ -47,7 +47,7 @@ typedef List<PendingElevatorEvent *> ListOfEvents;
 
 // The following class defines a bank of elevators
 class ElevatorBank : public CallBackObj {
-  public:
+public:
     ElevatorBank(int numElvtrs, int numFlrs, CallBackObj *riders,
                  CallBackObj *controllers);
     // Initialize the elevator hardware,
@@ -124,11 +124,11 @@ class ElevatorBank : public CallBackObj {
       // (relevant to rider threads)
       // triggered the callback.
 
-  private:
-    int numElevators;        // how many elevators in this bank?
-    int numFloors;           // how many floors in this building?
-    CallBackObj *callRiders; // call when an event occurs that
-                             // riders would be interested in
+private:
+    int numElevators;             // how many elevators in this bank?
+    int numFloors;                // how many floors in this building?
+    CallBackObj *callRiders;      // call when an event occurs that
+                                  // riders would be interested in
     CallBackObj *callControllers; // call when an event occurs that
                                   // elevator controller threads
     // would be interested in

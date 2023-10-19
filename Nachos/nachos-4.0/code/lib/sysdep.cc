@@ -214,8 +214,8 @@ bool PollFile(int fd) {
 
 // poll file or socket
 #ifdef BSD
-    retVal =
-        select(32, (fd_set *)&rfd, (fd_set *)&wfd, (fd_set *)&xfd, &pollTime);
+    retVal = select(32, (fd_set *)&rfd, (fd_set *)&wfd, (fd_set *)&xfd,
+                    &pollTime);
 #else
 #ifdef LINUX
     // KMS
@@ -311,7 +311,7 @@ int Tell(int fd) {
 #ifdef LINUX
     return lseek(fd, 0, SEEK_CUR);
 #else
-    return tell(fd); 
+    return tell(fd);
 #endif
 #endif
 }

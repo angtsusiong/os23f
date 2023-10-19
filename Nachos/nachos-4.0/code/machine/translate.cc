@@ -147,12 +147,12 @@ bool Machine::WriteMem(int addr, int size, int value) {
 
     case 2:
         *(unsigned short *)&mainMemory[physicalAddress] =
-            ShortToMachine((unsigned short)(value & 0xffff));
+                ShortToMachine((unsigned short)(value & 0xffff));
         break;
 
     case 4:
         *(unsigned int *)&mainMemory[physicalAddress] =
-            WordToMachine((unsigned int)value);
+                WordToMachine((unsigned int)value);
         break;
 
     default:

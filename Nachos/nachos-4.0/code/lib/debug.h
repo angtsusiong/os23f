@@ -30,12 +30,12 @@ const char dbgAddr = 'a';   // address spaces (USER_PROGRAM)
 const char dbgNet = 'n';    // network emulation (NETWORK)
 
 class Debug {
-  public:
+public:
     Debug(char *flagList);
 
     bool IsEnabled(char flag);
 
-  private:
+private:
     char *enableFlags; // controls which DEBUG messages are printed
 };
 

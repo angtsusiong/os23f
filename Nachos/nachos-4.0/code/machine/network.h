@@ -30,12 +30,12 @@ typedef int NetworkAddress;
 //	data (containing MailHeader from the PostOffice!)
 
 class PacketHeader {
-  public:
+public:
     NetworkAddress to;   // Destination machine ID
     NetworkAddress from; // source machine ID
     unsigned length;     // bytes of packet data, excluding the
-                     // packet header (but including the
-                     // MailHeader prepended by the post office)
+                         // packet header (but including the
+                         // MailHeader prepended by the post office)
 };
 
 #define MaxWireSize 64 // largest packet that can go out on the wire
@@ -53,7 +53,7 @@ class PacketHeader {
 // The random number generator is used to choose which packets to drop.
 
 class NetworkInput : public CallBackObj {
-  public:
+public:
     NetworkInput(CallBackObj *toCall);
     // Allocate and initialize network input driver
     ~NetworkInput(); // De-allocate the network input driver data
@@ -67,20 +67,20 @@ class NetworkInput : public CallBackObj {
 
     void CallBack(); // A packet may have arrived.
 
-  private:
+private:
     int sock;          // UNIX socket number for incoming packets
     char sockName[32]; // File name corresponding to UNIX socket
 
     CallBackObj *callWhenAvail; // Interrupt handler, signalling packet has
                                 // 	arrived.
-    bool packetAvail; // Packet has arrived, can be pulled off of
-                      //   network
-    PacketHeader inHdr;        // Information about arrived packet
-    char inbox[MaxPacketSize]; // Data for arrived packet
+    bool packetAvail;           // Packet has arrived, can be pulled off of
+                                //   network
+    PacketHeader inHdr;         // Information about arrived packet
+    char inbox[MaxPacketSize];  // Data for arrived packet
 };
 
 class NetworkOutput : public CallBackObj {
-  public:
+public:
     NetworkOutput(double reliability, CallBackObj *toCall);
     // Allocate and initialize network output driver
     ~NetworkOutput(); // De-allocate the network input driver data
@@ -98,12 +98,12 @@ class NetworkOutput : public CallBackObj {
     void CallBack(); // Interrupt handler, called when message is
                      // sent
 
-  private:
+private:
     int sock;                  // UNIX socket number for outgoing packets
     double chanceToWork;       // Likelihood packet will be dropped
     CallBackObj *callWhenDone; // Interrupt handler, signalling next packet
                                //      can be sent.
-    bool sendBusy; // Packet is being sent.
+    bool sendBusy;             // Packet is being sent.
 };
 
 #endif // NETWORK_H

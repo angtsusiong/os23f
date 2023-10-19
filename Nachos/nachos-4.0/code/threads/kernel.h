@@ -18,7 +18,7 @@
 #include "alarm.h"
 
 class ThreadedKernel {
-  public:
+public:
     ThreadedKernel(int argc, char **argv);
     // Interpret command line arguments
     ~ThreadedKernel(); // deallocate the kernel
@@ -42,7 +42,7 @@ class ThreadedKernel {
     Statistics *stats;     // performance metrics
     Alarm *alarm;          // the software alarm clock
 
-  private:
+private:
     bool randomSlice; // enable pseudo-random time slicing
 };
 

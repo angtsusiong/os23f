@@ -21,7 +21,7 @@
 //	2. One thread at a time can access list data structures
 
 template <class T> class SynchList {
-  public:
+public:
     SynchList();  // initialize a synchronized list
     ~SynchList(); // de-allocate a synchronized list
 
@@ -35,7 +35,7 @@ template <class T> class SynchList {
 
     void SelfTest(T value); // test the SynchList implementation
 
-  private:
+private:
     List<T> *list;        // the list of things
     Lock *lock;           // enforce mutual exclusive access to the list
     Condition *listEmpty; // wait in Remove if the list is empty
@@ -44,7 +44,7 @@ template <class T> class SynchList {
     SynchList<T> *selfTestPing;
     void SelfTestHelper();
     static void SelfTestHelper_st(
-        SynchList<T> *); // static member function for thread->Fork()
+            SynchList<T> *); // static member function for thread->Fork()
 };
 
 #include "synchlist.cc"

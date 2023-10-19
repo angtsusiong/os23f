@@ -18,7 +18,7 @@
 #include "synchdisk.h"
 class SynchDisk;
 class UserProgKernel : public ThreadedKernel {
-  public:
+public:
     UserProgKernel(int argc, char **argv);
     // Interpret command line arguments
     ~UserProgKernel(); // deallocate the kernel
@@ -37,7 +37,7 @@ class UserProgKernel : public ThreadedKernel {
     SynchDisk *synchDisk;
 #endif // FILESYS
 
-  private:
+private:
     bool debugUserProg; // single step user program
     Thread *t[10];
     char *execfile[10];

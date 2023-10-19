@@ -27,7 +27,7 @@
                     // Nachos file system as calls to UNIX!
                     // See definitions listed under #else
 class OpenFile {
-  public:
+public:
     OpenFile(int f) {
         file = f;
         currentOffset = 0;
@@ -59,7 +59,7 @@ class OpenFile {
         return Tell(file);
     }
 
-  private:
+private:
     int file;
     int currentOffset;
 };
@@ -68,7 +68,7 @@ class OpenFile {
 class FileHeader;
 
 class OpenFile {
-  public:
+public:
     OpenFile(int sector); // Open a file whose header is located
                           // at "sector" on the disk
     ~OpenFile();          // Close the file
@@ -92,7 +92,7 @@ class OpenFile {
                   // than the UNIX idiom -- lseek to
                   // end of file, tell, lseek back
 
-  private:
+private:
     FileHeader *hdr;  // Header for this file
     int seekPosition; // Current position within the file
 };

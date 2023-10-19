@@ -45,7 +45,7 @@
 // use two objects.
 
 class ConsoleInput : public CallBackObj {
-  public:
+public:
     ConsoleInput(char *readFile, CallBackObj *toCall);
     // initialize hardware console input
     ~ConsoleInput(); // clean up console emulation
@@ -58,7 +58,7 @@ class ConsoleInput : public CallBackObj {
     void CallBack(); // Invoked when a character arrives
                      // from the keyboard.
 
-  private:
+private:
     int readFileNo;             // UNIX file emulating the keyboard
     CallBackObj *callWhenAvail; // Interrupt handler to call when
                                 // there is a char to be read
@@ -68,7 +68,7 @@ class ConsoleInput : public CallBackObj {
 };
 
 class ConsoleOutput : public CallBackObj {
-  public:
+public:
     ConsoleOutput(char *writeFile, CallBackObj *toCall);
     // initialize hardware console output
     ~ConsoleOutput(); // clean up console emulation
@@ -80,7 +80,7 @@ class ConsoleOutput : public CallBackObj {
     void CallBack(); // Invoked when next character can be put
                      // out to the display.
 
-  private:
+private:
     int writeFileNo;           // UNIX file emulating the display
     CallBackObj *callWhenDone; // Interrupt handler to call when
                                // the next char can be put

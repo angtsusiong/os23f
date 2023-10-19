@@ -42,7 +42,7 @@
 // calls to UNIX, until the real file system
 // implementation is available
 class FileSystem {
-  public:
+public:
     FileSystem(bool format = true) {}
 
     bool Create(char *name) {
@@ -67,7 +67,7 @@ class FileSystem {
 
 #else // FILESYS
 class FileSystem {
-  public:
+public:
     FileSystem(bool format = true); // Initialize the file system.
                                     // Must be called *after* "synchDisk"
                                     // has been initialized.
@@ -86,7 +86,7 @@ class FileSystem {
 
     void Print(); // List all the files and their contents
 
-  private:
+private:
     OpenFile *freeMapFile;   // Bit map of free disk blocks,
                              // represented as a file
     OpenFile *directoryFile; // "Root" directory -- list of

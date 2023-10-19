@@ -21,13 +21,13 @@
 // a console device
 
 class SynchConsoleInput : public CallBackObj {
-  public:
+public:
     SynchConsoleInput(char *inputFile); // Initialize the console device
     ~SynchConsoleInput();               // Deallocate console device
 
     char GetChar(); // Read a character, waiting if necessary
 
-  private:
+private:
     ConsoleInput *consoleInput; // the hardware keyboard
     Lock *lock;                 // only one reader at a time
     Semaphore *waitFor;         // wait for callBack
@@ -36,13 +36,13 @@ class SynchConsoleInput : public CallBackObj {
 };
 
 class SynchConsoleOutput : public CallBackObj {
-  public:
+public:
     SynchConsoleOutput(char *outputFile); // Initialize the console device
     ~SynchConsoleOutput();
 
     void PutChar(char ch); // Write a character, waiting if necessary
 
-  private:
+private:
     ConsoleOutput *consoleOutput; // the hardware display
     Lock *lock;                   // only one writer at a time
     Semaphore *waitFor;           // wait for callBack

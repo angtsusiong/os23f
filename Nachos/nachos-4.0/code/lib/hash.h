@@ -39,7 +39,7 @@
 template <class Key, class T> class HashIterator;
 
 template <class Key, class T> class HashTable {
-  public:
+public:
     HashTable(Key (*get)(T x), unsigned (*hFunc)(Key x));
     // initialize a hash table
     ~HashTable(); // deallocate a hash table
@@ -65,7 +65,7 @@ template <class Key, class T> class HashTable {
     void SelfTest(T *p, int numItems);
     // is the module working?
 
-  private:
+private:
     typedef List<T> *Bucket;
 
     Bucket *buckets; // the array of hash buckets
@@ -101,7 +101,7 @@ template <class Key, class T> class HashTable {
 //      }
 
 template <class Key, class T> class HashIterator {
-  public:
+public:
     HashIterator(HashTable<Key, T> *table); // initialize an iterator
     ~HashIterator() {
         if (bucketIter != NULL)
@@ -118,7 +118,7 @@ template <class Key, class T> class HashIterator {
     // return current item in table
     void Next(); // update iterator to point to next
 
-  private:
+private:
     HashTable<Key, T> *table;    // the hash table we're stepping through
     int bucket;                  // current bucket we are in
     ListIterator<T> *bucketIter; // where we are in the bucket

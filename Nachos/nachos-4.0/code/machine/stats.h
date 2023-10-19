@@ -20,13 +20,13 @@
 // The fields in this class are public to make it easier to update.
 
 class Statistics {
-  public:
+public:
     int totalTicks;  // Total time running Nachos
     int idleTicks;   // Time spent idle (no threads to run)
     int systemTicks; // Time spent executing system code
     int userTicks;   // Time spent executing user code
-                   // (this is also equal to # of
-                   // user instructions executed)
+                     // (this is also equal to # of
+                     // user instructions executed)
 
     int numDiskReads;           // number of disk read requests
     int numDiskWrites;          // number of disk write requests

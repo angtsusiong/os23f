@@ -218,8 +218,8 @@ char *argv[];
                     Reg[rd(instr)] = (Reg[rs(instr)] < Reg[rt(instr)]);
                     break;
                 case I_SLTU:
-                    Reg[rd(instr)] =
-                        ((unsigned)Reg[rs(instr)] < (unsigned)Reg[rt(instr)]);
+                    Reg[rd(instr)] = ((unsigned)Reg[rs(instr)] <
+                                      (unsigned)Reg[rt(instr)]);
                     break;
                 default:
                     u();
@@ -290,7 +290,7 @@ char *argv[];
                 break;
             case I_SLTIU:
                 Reg[rt(instr)] =
-                    ((unsigned)Reg[rs(instr)] < (unsigned)immed(instr));
+                        ((unsigned)Reg[rs(instr)] < (unsigned)immed(instr));
                 break;
             case I_ANDI:
                 Reg[rt(instr)] = Reg[rs(instr)] & immed(instr);
@@ -331,7 +331,7 @@ char *argv[];
                 if ((i & 0x03) == 0)
                     Reg[rt(instr)] = 0;
                 Reg[rt(instr)] |=
-                    ((fetch(i & 0xfffffffc)) >> 8 * ((-i) & 0x03));
+                        ((fetch(i & 0xfffffffc)) >> 8 * ((-i) & 0x03));
                 break;
 
             case I_SB:

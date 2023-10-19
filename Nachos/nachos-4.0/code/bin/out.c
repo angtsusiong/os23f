@@ -56,11 +56,12 @@ char *symbol_type[] = {"Nil",      "Global",  "Static",     "Param",
                        "End",      "Member",  "Type",       "File",
                        "Register", "Forward", "StaticProc", "Constant"};
 
-char *storage_class[] = {
-    "Nil",        "Text",        "Data",    "Bss",        "Register", "Abs",
-    "Undefined",  "CdbLocal",    "Bits",    "CdbSystem",  "RegImage", "Info",
-    "UserStruct", "SData",       "SBss",    "RData",      "Var",      "Common",
-    "SCommon",    "VarRegister", "Variant", "SUndefined", "Init"};
+char *storage_class[] = {"Nil",        "Text",       "Data",      "Bss",
+                         "Register",   "Abs",        "Undefined", "CdbLocal",
+                         "Bits",       "CdbSystem",  "RegImage",  "Info",
+                         "UserStruct", "SData",      "SBss",      "RData",
+                         "Var",        "Common",     "SCommon",   "VarRegister",
+                         "Variant",    "SUndefined", "Init"};
 
 main(argc, argv) int argc;
 char *argv[];
@@ -92,7 +93,7 @@ char *argv[];
     for (i = 0; i < filehdr.f_nscns; ++i) {
         read_struct(f, scnhdr[i]);
         if (scnhdr[i].s_size > MAXDATA * sizeof(long) &&
-                scnhdr[i].s_scnptr != 0 ||
+                    scnhdr[i].s_scnptr != 0 ||
             scnhdr[i].s_nreloc > MAXRELOCS) {
             printf("section %s is too big.\n", scnhdr[i].s_name);
             exit(1);

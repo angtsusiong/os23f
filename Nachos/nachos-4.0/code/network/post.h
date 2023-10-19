@@ -42,11 +42,11 @@ typedef int MailBoxAddress;
 // is sent to the Network.
 
 class MailHeader {
-  public:
+public:
     MailBoxAddress to;   // Destination mail box
     MailBoxAddress from; // Mail box to reply to
     unsigned length;     // Bytes of message data (excluding the
-                     // mail header)
+                         // mail header)
 };
 
 // Maximum "payload" -- real data -- that can included in a single message
@@ -61,7 +61,7 @@ class MailHeader {
 //	data
 
 class Mail {
-  public:
+public:
     Mail(PacketHeader pktH, MailHeader mailH, char *msgData);
     // Initialize a mail message by
     // concatenating the headers to the data
@@ -77,7 +77,7 @@ class Mail {
 // threads on this machine.
 
 class MailBox {
-  public:
+public:
     MailBox();  // Allocate and initialize mail box
     ~MailBox(); // De-allocate mail box
 
@@ -87,7 +87,7 @@ class MailBox {
     // Atomically get a message out of the
     // mailbox (and wait if there is no message
     // to get!)
-  private:
+private:
     SynchList<Mail *> *messages; // A mailbox is just a list of arrived messages
 };
 
@@ -101,7 +101,7 @@ class MailBox {
 // appropriate mailbox, waking up any threads waiting on Receive.
 
 class PostOfficeInput : public CallBackObj {
-  public:
+public:
     PostOfficeInput(int nBoxes); // Allocate and initialize Post Office
     ~PostOfficeInput();          // De-allocate Post Office data
 
@@ -117,7 +117,7 @@ class PostOfficeInput : public CallBackObj {
                      // and can be pulled off of network
                      // (i.e., time to call PostalDelivery)
 
-  private:
+private:
     NetworkInput *network;       // Physical network connection
     MailBox *boxes;              // Table of mail boxes to hold incoming mail
     int numBoxes;                // Number of mail boxes
@@ -125,7 +125,7 @@ class PostOfficeInput : public CallBackObj {
 };
 
 class PostOfficeOutput : public CallBackObj {
-  public:
+public:
     PostOfficeOutput(double reliability, int nBoxes);
     // Allocate and initialize output
     //   "reliability" is how many packets
@@ -141,7 +141,7 @@ class PostOfficeOutput : public CallBackObj {
     void CallBack(); // Called when outgoing packet has been
                      // put on network; next packet can now be sent
 
-  private:
+private:
     NetworkOutput *network; // Physical network connection
     Semaphore *messageSent; // V'ed when next message can be sent to network
     Lock *sendLock;         // Only one outgoing message at a time

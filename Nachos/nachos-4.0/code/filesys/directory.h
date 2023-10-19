@@ -19,8 +19,9 @@
 
 #include "openfile.h"
 
-#define FileNameMaxLen 9 // for simplicity, we assume
-                         // file names are <= 9 characters long
+#define FileNameMaxLen                                                         \
+    9 // for simplicity, we assume
+      // file names are <= 9 characters long
 
 // The following class defines a "directory entry", representing a file
 // in the directory.  Each entry gives the name of the file, and where
@@ -30,7 +31,7 @@
 // access them directly.
 
 class DirectoryEntry {
-  public:
+public:
     bool inUse;                    // Is this directory entry in use?
     int sector;                    // Location on disk to find the
                                    //   FileHeader for this file
@@ -49,7 +50,7 @@ class DirectoryEntry {
 // from/to disk.
 
 class Directory {
-  public:
+public:
     Directory(int size); // Initialize an empty directory
                          // with space for "size" files
     ~Directory();        // De-allocate the directory
@@ -71,7 +72,7 @@ class Directory {
                   //  of the directory -- all the file
                   //  names and their contents.
 
-  private:
+private:
     int tableSize;         // Number of directory entries
     DirectoryEntry *table; // Table of pairs:
                            // <file name, file header location>

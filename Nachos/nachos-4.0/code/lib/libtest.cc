@@ -65,7 +65,7 @@ void LibSelfTest() {
     List<int> *list = new List<int>;
     SortedList<int> *sortList = new SortedList<int>(IntCompare);
     HashTable<int, char *> *hashTable =
-        new HashTable<int, char *>(HashKey, HashInt);
+            new HashTable<int, char *>(HashKey, HashInt);
 
     map->SelfTest();
     list->SelfTest(listTestVector, sizeof(listTestVector) / sizeof(int));

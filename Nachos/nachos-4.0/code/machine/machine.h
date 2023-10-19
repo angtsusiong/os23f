@@ -87,10 +87,10 @@ class Instruction;
 class Interrupt;
 
 class Machine {
-  public:
+public:
     Machine(bool debug); // Initialize the simulation of the hardware
                          // for running user programs
-    ~Machine(); // De-allocate the data structures
+    ~Machine();          // De-allocate the data structures
 
     // Routines callable by the Nachos kernel
     void Run(); // Run a user program
@@ -113,7 +113,8 @@ class Machine {
     // to physical addresses (relative to the beginning of "mainMemory")
     // can be controlled by one of:
     //	a traditional linear page table
-    //  	a software-loaded translation lookaside buffer (tlb) -- a cache of
+    //  	a software-loaded translation lookaside buffer (tlb) -- a cache
+    //  of
     //	  mappings of virtual page #'s to physical page #'s
     //
     // If "tlb" is NULL, the linear page table is used
@@ -135,7 +136,7 @@ class Machine {
     unsigned int pageTableSize;
     bool ReadMem(int addr, int size, int *value);
 
-  private:
+private:
     // Routines internal to the machine simulation -- DO NOT call these directly
     void DelayedLoad(int nextReg, int nextVal);
     // Do a pending delayed load (modifying a reg)
@@ -168,8 +169,8 @@ class Machine {
 
     int registers[NumTotalRegs]; // CPU registers, for executing user programs
 
-    bool singleStep; // drop back into the debugger after each
-                     // simulated instruction
+    bool singleStep;  // drop back into the debugger after each
+                      // simulated instruction
     int runUntilTime; // drop back into the debugger when simulated
                       // time reaches this value
 

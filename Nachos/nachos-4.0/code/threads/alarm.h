@@ -24,14 +24,14 @@
 
 // The following class defines a software alarm clock.
 class Alarm : public CallBackObj {
-  public:
+public:
     Alarm(bool doRandomYield); // Initialize the timer, and callback
                                // to "toCall" every time slice.
     ~Alarm() { delete timer; }
 
     void WaitUntil(int x); // suspend execution until time > now + x
 
-  private:
+private:
     Timer *timer; // the hardware timer device
 
     void CallBack(); // called when the hardware
