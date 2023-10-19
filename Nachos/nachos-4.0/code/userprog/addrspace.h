@@ -15,7 +15,9 @@
 
 #include "copyright.h"
 #include "filesys.h"
+#include "machine.h"
 #include <string.h>
+#include <unordered_set>
 
 #define UserStackSize 1024 // increase this as necessary!
 
@@ -41,6 +43,8 @@ private:
 
     void InitRegisters(); // Initialize user-level CPU registers,
                           // before jumping to user code
+
+    static std::unordered_set<unsigned int> usedFrames;
 };
 
 #endif // ADDRSPACE_H
