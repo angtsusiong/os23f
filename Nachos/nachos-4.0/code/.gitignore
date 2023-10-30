@@ -35,3 +35,14 @@
 .cache/
 compile_commands.json
 
+# Nachos
+*.coff
+bin/coff2noff
+*/swtch.s
+*/nachos
+test/*
+!test/*.c
+!test/*.s
+!test/Makefile
+!test/script
+
