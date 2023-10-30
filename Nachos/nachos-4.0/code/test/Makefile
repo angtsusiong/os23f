@@ -33,7 +33,7 @@ CPP = ../../../usr/local/nachos/decstation-ultrix/bin/cpp0
 INCDIR =-I../userprog -I../threads -I../lib
 CFLAGS = -G 0 -c $(INCDIR) -B../../../usr/local/nachos/lib/gcc-lib/decstation-ultrix/2.95.2/ -B../../../usr/local/nachos/decstation-ultrix/bin/
 
-all: halt shell matmult sort test1 test2
+all: halt shell matmult sort test1 test2 test_sleep test_sleep2
 
 start.o: start.s ../userprog/syscall.h
 	$(CPP) $(CPPFLAGS) start.s > strt.s
@@ -72,4 +72,11 @@ test2: test2.o start.o
 	$(LD) $(LDFLAGS) start.o test2.o -o test2.coff
 	../bin/coff2noff test2.coff test2
 
+test_sleep: test_sleep.o start.o
+	$(LD) $(LDFLAGS) start.o test_sleep.o -o test_sleep.coff
+	../bin/coff2noff test_sleep.coff test_sleep
+
+test_sleep2: test_sleep2.o start.o
+	$(LD) $(LDFLAGS) start.o test_sleep2.o -o test_sleep2.coff
+	../bin/coff2noff test_sleep2.coff test_sleep2
 
