@@ -10,6 +10,7 @@
 
 #include "copyright.h"
 #include "alarm.h"
+#include "interrupt.h"
 #include "main.h"
 
 //----------------------------------------------------------------------
@@ -47,11 +48,29 @@ void Alarm::CallBack() {
     Interrupt *interrupt = kernel->interrupt;
     MachineStatus status = interrupt->getStatus();
 
-    if (status == IdleMode) { // is it time to quit?
+    bool sleeping = true;
+    while (!sleepingThread.empty()) {
+        if (const auto& [ticks, thread] = sleepingThread.top(); -ticks <= kernel->stats->totalTicks) {
+            sleeping = false;
+            kernel->scheduler->ReadyToRun(thread);
+            sleepingThread.pop();
+        } else {
+            break;
+        }
+    }
+
+    if (status == IdleMode && sleeping && sleepingThread.empty()) { // is it time to quit?
         if (!interrupt->AnyFutureInterrupts()) {
             timer->Disable(); // turn off the timer
         }
     } else { // there's someone to preempt
         interrupt->YieldOnReturn();
     }
+}
+
+void Alarm::WaitUntil(int x) {
+    IntStatus prevLevel = kernel->interrupt->SetLevel(IntOff);
+    sleepingThread.emplace(-x - kernel->stats->totalTicks, kernel->currentThread);
+    kernel->currentThread->Sleep(false);
+    kernel->interrupt->SetLevel(prevLevel);
 }

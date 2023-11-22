@@ -753,7 +753,16 @@ interrupt.o: ../machine/interrupt.cc /usr/include/stdc-predef.h \
  ../threads/main.h ../lib/debug.h ../threads/kernel.h ../lib/utility.h \
  ../threads/thread.h ../lib/sysdep.h ../threads/scheduler.h \
  ../machine/interrupt.h ../machine/stats.h ../threads/alarm.h \
- ../machine/callback.h ../machine/timer.h
+ ../machine/callback.h ../machine/timer.h /usr/include/c++/13.2.1/queue \
+ /usr/include/c++/13.2.1/deque \
+ /usr/include/c++/13.2.1/bits/stl_uninitialized.h \
+ /usr/include/c++/13.2.1/bits/stl_deque.h \
+ /usr/include/c++/13.2.1/bits/deque.tcc /usr/include/c++/13.2.1/vector \
+ /usr/include/c++/13.2.1/bits/stl_vector.h \
+ /usr/include/c++/13.2.1/bits/stl_bvector.h \
+ /usr/include/c++/13.2.1/bits/vector.tcc \
+ /usr/include/c++/13.2.1/bits/stl_heap.h \
+ /usr/include/c++/13.2.1/bits/stl_queue.h
 stats.o: ../machine/stats.cc /usr/include/stdc-predef.h \
  ../lib/copyright.h ../lib/debug.h ../lib/copyright.h ../lib/utility.h \
  ../lib/sysdep.h /usr/include/c++/13.2.1/iostream \
@@ -1038,12 +1047,21 @@ timer.o: ../machine/timer.cc /usr/include/stdc-predef.h \
  /usr/include/strings.h ../threads/kernel.h ../threads/thread.h \
  ../lib/sysdep.h ../threads/scheduler.h ../lib/list.h ../lib/debug.h \
  ../lib/list.cc ../machine/interrupt.h ../machine/stats.h \
- ../threads/alarm.h ../machine/callback.h ../machine/timer.h
+ ../threads/alarm.h ../machine/callback.h ../machine/timer.h \
+ /usr/include/c++/13.2.1/queue /usr/include/c++/13.2.1/deque \
+ /usr/include/c++/13.2.1/bits/stl_uninitialized.h \
+ /usr/include/c++/13.2.1/bits/stl_deque.h \
+ /usr/include/c++/13.2.1/bits/deque.tcc /usr/include/c++/13.2.1/vector \
+ /usr/include/c++/13.2.1/bits/stl_vector.h \
+ /usr/include/c++/13.2.1/bits/stl_bvector.h \
+ /usr/include/c++/13.2.1/bits/vector.tcc \
+ /usr/include/c++/13.2.1/bits/stl_heap.h \
+ /usr/include/c++/13.2.1/bits/stl_queue.h
 alarm.o: ../threads/alarm.cc /usr/include/stdc-predef.h \
  ../lib/copyright.h ../threads/alarm.h ../lib/utility.h \
  ../lib/copyright.h ../machine/callback.h ../machine/timer.h \
- ../machine/callback.h ../threads/main.h ../lib/debug.h ../lib/utility.h \
- ../lib/sysdep.h /usr/include/c++/13.2.1/iostream \
+ ../machine/callback.h ../threads/thread.h ../lib/sysdep.h \
+ /usr/include/c++/13.2.1/iostream \
  /usr/include/c++/13.2.1/bits/requires_hosted.h \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/c++config.h \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/os_defines.h \
@@ -1180,9 +1198,19 @@ alarm.o: ../threads/alarm.cc /usr/include/stdc-predef.h \
  /usr/include/c++/13.2.1/bits/ostream.tcc /usr/include/c++/13.2.1/istream \
  /usr/include/c++/13.2.1/bits/istream.tcc \
  /usr/include/c++/13.2.1/stdlib.h /usr/include/string.h \
- /usr/include/strings.h ../threads/kernel.h ../threads/thread.h \
- ../lib/sysdep.h ../threads/scheduler.h ../lib/list.h ../lib/debug.h \
- ../lib/list.cc ../machine/interrupt.h ../machine/stats.h
+ /usr/include/strings.h /usr/include/c++/13.2.1/queue \
+ /usr/include/c++/13.2.1/deque \
+ /usr/include/c++/13.2.1/bits/stl_uninitialized.h \
+ /usr/include/c++/13.2.1/bits/stl_deque.h \
+ /usr/include/c++/13.2.1/bits/deque.tcc /usr/include/c++/13.2.1/vector \
+ /usr/include/c++/13.2.1/bits/stl_vector.h \
+ /usr/include/c++/13.2.1/bits/stl_bvector.h \
+ /usr/include/c++/13.2.1/bits/vector.tcc \
+ /usr/include/c++/13.2.1/bits/stl_heap.h \
+ /usr/include/c++/13.2.1/bits/stl_queue.h ../machine/interrupt.h \
+ ../lib/list.h ../lib/debug.h ../lib/utility.h ../lib/sysdep.h \
+ ../lib/list.cc ../threads/main.h ../lib/debug.h ../threads/kernel.h \
+ ../threads/scheduler.h ../machine/stats.h
 kernel.o: ../threads/kernel.cc /usr/include/stdc-predef.h \
  ../lib/copyright.h ../lib/debug.h ../lib/copyright.h ../lib/utility.h \
  ../lib/sysdep.h /usr/include/c++/13.2.1/iostream \
@@ -1327,8 +1355,17 @@ kernel.o: ../threads/kernel.cc /usr/include/stdc-predef.h \
  ../threads/scheduler.h ../lib/list.h ../lib/debug.h ../lib/list.cc \
  ../machine/interrupt.h ../machine/callback.h ../machine/stats.h \
  ../threads/alarm.h ../machine/callback.h ../machine/timer.h \
- ../threads/synch.h ../threads/synchlist.h ../threads/synchlist.cc \
- ../lib/libtest.h ../machine/elevatortest.h
+ /usr/include/c++/13.2.1/queue /usr/include/c++/13.2.1/deque \
+ /usr/include/c++/13.2.1/bits/stl_uninitialized.h \
+ /usr/include/c++/13.2.1/bits/stl_deque.h \
+ /usr/include/c++/13.2.1/bits/deque.tcc /usr/include/c++/13.2.1/vector \
+ /usr/include/c++/13.2.1/bits/stl_vector.h \
+ /usr/include/c++/13.2.1/bits/stl_bvector.h \
+ /usr/include/c++/13.2.1/bits/vector.tcc \
+ /usr/include/c++/13.2.1/bits/stl_heap.h \
+ /usr/include/c++/13.2.1/bits/stl_queue.h ../threads/synch.h \
+ ../threads/synchlist.h ../threads/synchlist.cc ../lib/libtest.h \
+ ../machine/elevatortest.h
 main.o: ../threads/main.cc /usr/include/stdc-predef.h ../lib/copyright.h \
  ../threads/main.h ../lib/debug.h ../lib/copyright.h ../lib/utility.h \
  ../lib/sysdep.h /usr/include/c++/13.2.1/iostream \
@@ -1472,7 +1509,16 @@ main.o: ../threads/main.cc /usr/include/stdc-predef.h ../lib/copyright.h \
  ../threads/thread.h ../lib/sysdep.h ../threads/scheduler.h ../lib/list.h \
  ../lib/debug.h ../lib/list.cc ../machine/interrupt.h \
  ../machine/callback.h ../machine/stats.h ../threads/alarm.h \
- ../machine/callback.h ../machine/timer.h
+ ../machine/callback.h ../machine/timer.h /usr/include/c++/13.2.1/queue \
+ /usr/include/c++/13.2.1/deque \
+ /usr/include/c++/13.2.1/bits/stl_uninitialized.h \
+ /usr/include/c++/13.2.1/bits/stl_deque.h \
+ /usr/include/c++/13.2.1/bits/deque.tcc /usr/include/c++/13.2.1/vector \
+ /usr/include/c++/13.2.1/bits/stl_vector.h \
+ /usr/include/c++/13.2.1/bits/stl_bvector.h \
+ /usr/include/c++/13.2.1/bits/vector.tcc \
+ /usr/include/c++/13.2.1/bits/stl_heap.h \
+ /usr/include/c++/13.2.1/bits/stl_queue.h
 scheduler.o: ../threads/scheduler.cc /usr/include/stdc-predef.h \
  ../lib/copyright.h ../lib/debug.h ../lib/copyright.h ../lib/utility.h \
  ../lib/sysdep.h /usr/include/c++/13.2.1/iostream \
@@ -1616,7 +1662,16 @@ scheduler.o: ../threads/scheduler.cc /usr/include/stdc-predef.h \
  ../lib/debug.h ../lib/list.cc ../threads/thread.h ../lib/utility.h \
  ../lib/sysdep.h ../threads/main.h ../threads/kernel.h \
  ../machine/interrupt.h ../machine/callback.h ../machine/stats.h \
- ../threads/alarm.h ../machine/callback.h ../machine/timer.h
+ ../threads/alarm.h ../machine/callback.h ../machine/timer.h \
+ /usr/include/c++/13.2.1/queue /usr/include/c++/13.2.1/deque \
+ /usr/include/c++/13.2.1/bits/stl_uninitialized.h \
+ /usr/include/c++/13.2.1/bits/stl_deque.h \
+ /usr/include/c++/13.2.1/bits/deque.tcc /usr/include/c++/13.2.1/vector \
+ /usr/include/c++/13.2.1/bits/stl_vector.h \
+ /usr/include/c++/13.2.1/bits/stl_bvector.h \
+ /usr/include/c++/13.2.1/bits/vector.tcc \
+ /usr/include/c++/13.2.1/bits/stl_heap.h \
+ /usr/include/c++/13.2.1/bits/stl_queue.h
 synch.o: ../threads/synch.cc /usr/include/stdc-predef.h \
  ../lib/copyright.h ../threads/synch.h ../threads/thread.h \
  ../lib/utility.h ../lib/copyright.h ../lib/sysdep.h \
@@ -1761,7 +1816,16 @@ synch.o: ../threads/synch.cc /usr/include/stdc-predef.h \
  ../lib/sysdep.h ../lib/list.cc ../threads/main.h ../lib/debug.h \
  ../threads/kernel.h ../threads/scheduler.h ../machine/interrupt.h \
  ../machine/callback.h ../machine/stats.h ../threads/alarm.h \
- ../machine/callback.h ../machine/timer.h
+ ../machine/callback.h ../machine/timer.h /usr/include/c++/13.2.1/queue \
+ /usr/include/c++/13.2.1/deque \
+ /usr/include/c++/13.2.1/bits/stl_uninitialized.h \
+ /usr/include/c++/13.2.1/bits/stl_deque.h \
+ /usr/include/c++/13.2.1/bits/deque.tcc /usr/include/c++/13.2.1/vector \
+ /usr/include/c++/13.2.1/bits/stl_vector.h \
+ /usr/include/c++/13.2.1/bits/stl_bvector.h \
+ /usr/include/c++/13.2.1/bits/vector.tcc \
+ /usr/include/c++/13.2.1/bits/stl_heap.h \
+ /usr/include/c++/13.2.1/bits/stl_queue.h
 synchlist.o: ../threads/synchlist.cc /usr/include/stdc-predef.h \
  ../lib/copyright.h ../threads/synchlist.h ../lib/list.h \
  ../lib/copyright.h ../lib/debug.h ../lib/utility.h ../lib/sysdep.h \
@@ -1907,7 +1971,15 @@ synchlist.o: ../threads/synchlist.cc /usr/include/stdc-predef.h \
  ../lib/debug.h ../threads/kernel.h ../threads/scheduler.h \
  ../machine/interrupt.h ../machine/callback.h ../machine/stats.h \
  ../threads/alarm.h ../machine/callback.h ../machine/timer.h \
- ../threads/synchlist.cc
+ /usr/include/c++/13.2.1/queue /usr/include/c++/13.2.1/deque \
+ /usr/include/c++/13.2.1/bits/stl_uninitialized.h \
+ /usr/include/c++/13.2.1/bits/stl_deque.h \
+ /usr/include/c++/13.2.1/bits/deque.tcc /usr/include/c++/13.2.1/vector \
+ /usr/include/c++/13.2.1/bits/stl_vector.h \
+ /usr/include/c++/13.2.1/bits/stl_bvector.h \
+ /usr/include/c++/13.2.1/bits/vector.tcc \
+ /usr/include/c++/13.2.1/bits/stl_heap.h \
+ /usr/include/c++/13.2.1/bits/stl_queue.h ../threads/synchlist.cc
 thread.o: ../threads/thread.cc /usr/include/stdc-predef.h \
  ../lib/copyright.h ../threads/thread.h ../lib/utility.h \
  ../lib/copyright.h ../lib/sysdep.h /usr/include/c++/13.2.1/iostream \
@@ -2052,7 +2124,16 @@ thread.o: ../threads/thread.cc /usr/include/stdc-predef.h \
  ../lib/list.cc ../threads/main.h ../lib/debug.h ../threads/kernel.h \
  ../threads/scheduler.h ../machine/interrupt.h ../machine/callback.h \
  ../machine/stats.h ../threads/alarm.h ../machine/callback.h \
- ../machine/timer.h
+ ../machine/timer.h /usr/include/c++/13.2.1/queue \
+ /usr/include/c++/13.2.1/deque \
+ /usr/include/c++/13.2.1/bits/stl_uninitialized.h \
+ /usr/include/c++/13.2.1/bits/stl_deque.h \
+ /usr/include/c++/13.2.1/bits/deque.tcc /usr/include/c++/13.2.1/vector \
+ /usr/include/c++/13.2.1/bits/stl_vector.h \
+ /usr/include/c++/13.2.1/bits/stl_bvector.h \
+ /usr/include/c++/13.2.1/bits/vector.tcc \
+ /usr/include/c++/13.2.1/bits/stl_heap.h \
+ /usr/include/c++/13.2.1/bits/stl_queue.h
 elevatortest.o: ../machine/elevatortest.cc /usr/include/stdc-predef.h \
  ../lib/copyright.h ../machine/elevatortest.h ../machine/elevator.h \
  ../lib/utility.h ../lib/copyright.h ../machine/callback.h ../lib/list.h \
@@ -2198,7 +2279,16 @@ elevatortest.o: ../machine/elevatortest.cc /usr/include/stdc-predef.h \
  ../threads/thread.h ../lib/sysdep.h ../threads/main.h ../lib/debug.h \
  ../threads/kernel.h ../threads/scheduler.h ../machine/interrupt.h \
  ../machine/stats.h ../threads/alarm.h ../machine/callback.h \
- ../machine/timer.h ../threads/thread.h
+ ../machine/timer.h /usr/include/c++/13.2.1/queue \
+ /usr/include/c++/13.2.1/deque \
+ /usr/include/c++/13.2.1/bits/stl_uninitialized.h \
+ /usr/include/c++/13.2.1/bits/stl_deque.h \
+ /usr/include/c++/13.2.1/bits/deque.tcc /usr/include/c++/13.2.1/vector \
+ /usr/include/c++/13.2.1/bits/stl_vector.h \
+ /usr/include/c++/13.2.1/bits/stl_bvector.h \
+ /usr/include/c++/13.2.1/bits/vector.tcc \
+ /usr/include/c++/13.2.1/bits/stl_heap.h \
+ /usr/include/c++/13.2.1/bits/stl_queue.h ../threads/thread.h
 elevator.o: ../machine/elevator.cc /usr/include/stdc-predef.h \
  ../lib/copyright.h ../machine/elevator.h ../lib/utility.h \
  ../lib/copyright.h ../machine/callback.h ../lib/list.h ../lib/debug.h \
@@ -2342,7 +2432,16 @@ elevator.o: ../machine/elevator.cc /usr/include/stdc-predef.h \
  /usr/include/strings.h ../lib/list.cc ../threads/kernel.h ../lib/debug.h \
  ../threads/thread.h ../lib/sysdep.h ../threads/scheduler.h \
  ../machine/interrupt.h ../machine/stats.h ../threads/alarm.h \
- ../machine/callback.h ../machine/timer.h ../threads/main.h \
+ ../machine/callback.h ../machine/timer.h /usr/include/c++/13.2.1/queue \
+ /usr/include/c++/13.2.1/deque \
+ /usr/include/c++/13.2.1/bits/stl_uninitialized.h \
+ /usr/include/c++/13.2.1/bits/stl_deque.h \
+ /usr/include/c++/13.2.1/bits/deque.tcc /usr/include/c++/13.2.1/vector \
+ /usr/include/c++/13.2.1/bits/stl_vector.h \
+ /usr/include/c++/13.2.1/bits/stl_bvector.h \
+ /usr/include/c++/13.2.1/bits/vector.tcc \
+ /usr/include/c++/13.2.1/bits/stl_heap.h \
+ /usr/include/c++/13.2.1/bits/stl_queue.h ../threads/main.h \
  ../threads/kernel.h
 # DEPENDENCIES MUST END AT END OF FILE
 # IF YOU PUT STUFF HERE IT WILL GO AWAY

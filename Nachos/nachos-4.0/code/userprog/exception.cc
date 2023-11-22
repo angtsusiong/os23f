@@ -65,7 +65,7 @@ void ExceptionHandler(ExceptionType which) {
             return;
         case SC_Sleep:
             val = kernel->machine->ReadRegister(4);
-            cout << "Sleep " << val << " second" << endl;
+            kernel->alarm->WaitUntil(val);
             return;
         /*		case SC_Exec:
                     DEBUG(dbgAddr, "Exec\n");

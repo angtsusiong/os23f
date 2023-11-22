@@ -21,6 +21,8 @@
 #include "utility.h"
 #include "callback.h"
 #include "timer.h"
+#include "thread.h"
+#include <queue>
 
 // The following class defines a software alarm clock.
 class Alarm : public CallBackObj {
@@ -33,6 +35,8 @@ public:
 
 private:
     Timer *timer; // the hardware timer device
+
+    std::priority_queue<std::pair<int, Thread *>> sleepingThread;
 
     void CallBack(); // called when the hardware
                      // timer generates an interrupt
