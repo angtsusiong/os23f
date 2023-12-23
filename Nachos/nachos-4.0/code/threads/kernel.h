@@ -27,6 +27,8 @@ public:
                        // from constructor because
                        // refers to "kernel" as a global
 
+    void Initialize(SchedulerType type);
+
     void Run(); // do kernel stuff
 
     void SelfTest(); // test whether kernel is working

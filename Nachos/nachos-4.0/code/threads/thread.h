@@ -103,6 +103,13 @@ public:
     char *getName() { return (name); }
     void Print() { cout << name; }
     void SelfTest(); // test whether thread impl is working
+    int getBurstTime() { return burstTime; }
+    int getSchePriority() { return schePriority; }
+    int getStartTime() { return startTime; }
+    void setBurstTime(int t) { burstTime = t; }
+    void setSchePriority(int p) { schePriority = p; }
+    void setStartTime(int t) { startTime = t; }
+    static void SchedulingTest();
 
 private:
     // some of the private data for this class is listed above
@@ -116,6 +123,10 @@ private:
     void StackAllocate(VoidFunctionPtr func, void *arg);
     // Allocate a stack for thread.
     // Used internally by Fork()
+
+    int burstTime;
+    int schePriority;
+    int startTime;
 
 #ifdef USER_PROGRAM
     // A thread running a user program actually has *two* sets of CPU registers

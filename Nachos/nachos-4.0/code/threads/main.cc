@@ -14,6 +14,7 @@
 // All rights reserved.  See copyright.h for copyright notice and limitation
 // of liability and disclaimer of warranty provisions.
 
+#include "scheduler.h"
 #define MAIN
 #include "copyright.h"
 #undef MAIN
@@ -51,6 +52,7 @@ static void Cleanup(int x) {
 int main(int argc, char **argv) {
     int i;
     char *debugArg = "";
+    SchedulerType scheType = RR;
 
     // before anything else, initialize the debugging system
     for (i = 1; i < argc; i++) {
@@ -62,6 +64,25 @@ int main(int argc, char **argv) {
             cout << "Partial usage: nachos [-z -d debugFlags]\n";
         } else if (strcmp(argv[i], "-z") == 0) {
             cout << copyright;
+        } else if (strcmp(argv[i], "-scheduler") == 0) {
+            ASSERT(i + 1 < argc);  // next argument is scheduler type string
+            if (strcmp(argv[i + 1], "RR") == 0) {
+                cout << "Using Round Robin now." << endl;
+                scheType = RR;
+            } else if (strcmp(argv[i + 1], "FCFS") == 0) {
+                cout << "Using First-Come-First-Service now." << endl;
+                scheType = FCFS;
+            } else if (strcmp(argv[i + 1], "SJF") == 0) {
+                cout << "Using Shortest-Job-First now." << endl;
+                scheType = SJF;
+            } else if (strcmp(argv[i + 1], "Priority") == 0) {
+                cout << "Using Priority now." << endl;
+                scheType = Priority;
+            } else {
+                cout << "No matching scheduler type! Using Round Robin by default.\n";
+                scheType = RR;
+            }
+            i++;
         }
     }
     debug = new Debug(debugArg);
@@ -69,7 +90,7 @@ int main(int argc, char **argv) {
     DEBUG(dbgThread, "Entering main");
 
     kernel = new KernelType(argc, argv);
-    kernel->Initialize();
+    kernel->Initialize(scheType);
 
     CallOnUserAbort(Cleanup); // if user hits ctl-C
 

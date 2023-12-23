@@ -1419,9 +1419,10 @@ kernel.o: ../threads/kernel.cc /usr/include/stdc-predef.h \
  ../machine/disk.h ../threads/synch.h ../threads/kernel.h \
  ../threads/synch.h ../threads/synchlist.h ../threads/synchlist.cc \
  ../lib/libtest.h ../machine/elevatortest.h
-main.o: ../threads/main.cc /usr/include/stdc-predef.h ../lib/copyright.h \
- ../threads/main.h ../lib/debug.h ../lib/copyright.h ../lib/utility.h \
- ../lib/sysdep.h /usr/include/c++/13.2.1/iostream \
+main.o: ../threads/main.cc /usr/include/stdc-predef.h \
+ ../threads/scheduler.h ../lib/copyright.h ../lib/list.h \
+ ../lib/copyright.h ../lib/debug.h ../lib/utility.h ../lib/sysdep.h \
+ /usr/include/c++/13.2.1/iostream \
  /usr/include/c++/13.2.1/bits/requires_hosted.h \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/c++config.h \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/os_defines.h \
@@ -1558,22 +1559,21 @@ main.o: ../threads/main.cc /usr/include/stdc-predef.h ../lib/copyright.h \
  /usr/include/c++/13.2.1/bits/ostream.tcc /usr/include/c++/13.2.1/istream \
  /usr/include/c++/13.2.1/bits/istream.tcc \
  /usr/include/c++/13.2.1/stdlib.h /usr/include/string.h \
- /usr/include/strings.h ../network/netkernel.h ../userprog/userkernel.h \
- ../threads/kernel.h ../lib/utility.h ../threads/thread.h ../lib/sysdep.h \
- ../machine/machine.h ../machine/translate.h ../userprog/addrspace.h \
- ../filesys/filesys.h ../filesys/openfile.h \
- /usr/include/c++/13.2.1/unordered_set \
+ /usr/include/strings.h ../lib/list.cc ../threads/thread.h \
+ ../lib/utility.h ../lib/sysdep.h ../machine/machine.h \
+ ../machine/translate.h ../userprog/addrspace.h ../filesys/filesys.h \
+ ../filesys/openfile.h /usr/include/c++/13.2.1/unordered_set \
  /usr/include/c++/13.2.1/bits/unordered_set.h \
  /usr/include/c++/13.2.1/bits/hashtable.h \
  /usr/include/c++/13.2.1/bits/hashtable_policy.h \
  /usr/include/c++/13.2.1/ext/aligned_buffer.h \
  /usr/include/c++/13.2.1/bits/enable_special_members.h \
  /usr/include/c++/13.2.1/bits/node_handle.h \
- /usr/include/c++/13.2.1/bits/erase_if.h ../threads/scheduler.h \
- ../lib/list.h ../lib/debug.h ../lib/list.cc ../machine/interrupt.h \
- ../machine/callback.h ../machine/stats.h ../threads/alarm.h \
- ../machine/callback.h ../machine/timer.h /usr/include/c++/13.2.1/queue \
- /usr/include/c++/13.2.1/deque \
+ /usr/include/c++/13.2.1/bits/erase_if.h ../threads/main.h ../lib/debug.h \
+ ../network/netkernel.h ../userprog/userkernel.h ../threads/kernel.h \
+ ../machine/interrupt.h ../machine/callback.h ../machine/stats.h \
+ ../threads/alarm.h ../machine/callback.h ../machine/timer.h \
+ /usr/include/c++/13.2.1/queue /usr/include/c++/13.2.1/deque \
  /usr/include/c++/13.2.1/bits/stl_uninitialized.h \
  /usr/include/c++/13.2.1/bits/stl_deque.h \
  /usr/include/c++/13.2.1/bits/deque.tcc /usr/include/c++/13.2.1/vector \
@@ -1722,8 +1722,8 @@ scheduler.o: ../threads/scheduler.cc /usr/include/stdc-predef.h \
  /usr/include/c++/13.2.1/bits/ostream.tcc /usr/include/c++/13.2.1/istream \
  /usr/include/c++/13.2.1/bits/istream.tcc \
  /usr/include/c++/13.2.1/stdlib.h /usr/include/string.h \
- /usr/include/strings.h ../threads/scheduler.h ../lib/list.h \
- ../lib/debug.h ../lib/list.cc ../threads/thread.h ../lib/utility.h \
+ /usr/include/strings.h ../lib/list.h ../lib/debug.h ../lib/list.cc \
+ ../threads/scheduler.h ../threads/thread.h ../lib/utility.h \
  ../lib/sysdep.h ../machine/machine.h ../machine/translate.h \
  ../userprog/addrspace.h ../filesys/filesys.h ../filesys/openfile.h \
  /usr/include/c++/13.2.1/unordered_set \

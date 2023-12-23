@@ -20,6 +20,7 @@
 
 #include "copyright.h"
 #include "debug.h"
+#include "list.h"
 #include "scheduler.h"
 #include "main.h"
 
@@ -32,6 +33,34 @@
 Scheduler::Scheduler() {
     //	schedulerType = type;
     readyList = new List<Thread *>;
+    toBeDestroyed = NULL;
+}
+
+Scheduler::Scheduler(SchedulerType type) {
+    schedulerType = type;
+    switch (schedulerType) {
+        case RR:
+            readyList = new List<Thread *>;
+            break;
+        case FCFS:
+            readyList = new SortedList<Thread *>([](Thread *l, Thread *r) -> int {
+                if (l->getStartTime() < r->getStartTime()) return -1;
+                return l->getStartTime() > r->getStartTime();
+            });
+            break;
+        case SJF:
+            readyList = new SortedList<Thread *>([](Thread *l, Thread *r) -> int {
+                if (l->getBurstTime() < r->getBurstTime()) return -1;
+                return l->getBurstTime() > r->getBurstTime();
+            });
+            break;
+        case Priority:
+            readyList = new SortedList<Thread *>([](Thread *l, Thread *r) -> int {
+                if (l->getSchePriority() < r->getSchePriority()) return -1;
+                return l->getSchePriority() > r->getSchePriority();
+            });
+            break;
+    }
     toBeDestroyed = NULL;
 }
 

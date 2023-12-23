@@ -21,6 +21,7 @@
 #include "switch.h"
 #include "synch.h"
 #include "sysdep.h"
+#include "utility.h"
 
 // this is put at the top of the execution stack, for detecting stack overflows
 const int STACK_FENCEPOST = 0xdedbeef;
@@ -408,6 +409,32 @@ void Thread::SelfTest() {
 
     Thread *t = new Thread("forked thread");
 
-    t->Fork((VoidFunctionPtr)SimpleThread, (void *)1);
+    t->Fork((VoidFunctionPtr) SimpleThread, (void *)1);
     SimpleThread(0);
+}
+
+void threadBody() {
+    Thread *thread = kernel->currentThread;
+    while (thread->getBurstTime() > 0) {
+        thread->setBurstTime(thread->getBurstTime() - 1);
+        printf("=== %s: remaining %d\n", kernel->currentThread->getName(), kernel->currentThread->getBurstTime());
+    }
+}
+
+void Thread::SchedulingTest(){
+    const int thread_num = 4;
+    char *name[thread_num] = {"A", "B", "C", "D"};
+    int thread_priority[thread_num] = {5, 1, 3, 2};
+    int thread_burst[thread_num] = {3, 9, 7, 3};
+    int thread_start[thread_num] = {1, 2, 3, 4};
+    
+    Thread *t;
+    for (int i = 0; i < thread_num; i ++) {
+        t = new Thread(name[i]);
+        t->setSchePriority(thread_priority[i]);
+        t->setBurstTime(thread_burst[i]);
+        t->setStartTime(thread_start[i]);
+        t->Fork((VoidFunctionPtr) threadBody, (void *)NULL);
+    }
+    kernel->currentThread->Yield();
 }

@@ -19,6 +19,7 @@
 
 enum SchedulerType {
     RR, // Round Robin
+    FCFS,
     SJF,
     Priority
 };
@@ -26,6 +27,7 @@ enum SchedulerType {
 class Scheduler {
 public:
     Scheduler();  // Initialize list of ready threads
+    Scheduler(SchedulerType type);
     ~Scheduler(); // De-allocate ready list
 
     void ReadyToRun(Thread *thread);
